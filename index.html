@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ResQTrack - Animal Rescue</title>
+
+  <!-- External Fonts and Icons -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 🔶 Top Contact Header */
+    .top-header {
+      background-color: transparent;
+      color: #000;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      .left-contact i {
+  color: black !important;
+}
+
+    }
+
+    .top-header .left-contact {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .top-header i {
+      margin-right: 6px;
+    }
+
+    .top-header .social-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .top-header .social-icons a {
+  color: white;
+  background-color: black;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background 0.3s ease;
+}
+
+    
+
+    .top-header .social-icons a:hover {
+      background-color: #333;
+    }
+
+    /* 🔶 General Layout */
+    .section-box {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 20px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      width: 95%;
+      padding: 40px 30px;
+      margin: 40px auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      text-align: center;
+    }
+
+    .section-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #1B5E20;
+    }
+
+    header p {
+      color: #455A64;
+      margin-top: 10px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .action-buttons a {
+      text-decoration: none;
+      padding: 16px 24px;
+      border-radius: 14px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      transition: 0.3s ease;
+      color: white;
+    }
+
+    .btn.report {
+      background-color: #FF7043;
+    }
+
+    .btn.track {
+      background-color: #29B6F6;
+    }
+
+    .scroll-down-text {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 20px;
+      color: #ffffff;
+      text-shadow: 0 0 6px #000000;
+      animation: fadeBounce 2s infinite;
+    }
+
+    @keyframes fadeBounce {
+      0%, 100% {
+        opacity: 0.6;
+        transform: translateY(0);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(5px);
+      }
+    }
+
+    .how-it-works {
+      background-color: #7af5cc;
+      border-radius: 20px;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .step {
+      background-color: #f7ef80;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .step h3 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+    }
+
+    .contact-section {
+      background-color: #FFF8E1;
+      padding: 40px 20px;
+      border-radius: 20px;
+      margin-top: 40px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      background-color: #FB8C00;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #EF6C00;
+    }
+
+    @media (max-width: 600px) {
+      .top-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .scroll-down-text {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔶 Header with Contact and Social -->
+  <div class="top-header">
+    <div class="left-contact">
+      <span><i class="fas fa-phone"></i> +91 7410191041</span>
+      <span><i class="fas fa-envelope"></i> resqtrack@gmail.com</span>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+
+  <!-- 🔶 Hero Section -->
+  <header class="section-box">
+    <h1>Welcome to ResQTrack</h1>
+    <p>Empowering our community to rescue and rehabilitate injured animals.</p>
+    <div class="action-buttons">
+      <a href="https://docs.google.com/forms/d/1wMUxHYmKVE6qWaxAv-R01vmLy404BckBP7U27GZWvn8/edit" target="_blank" class="btn report">Report an Injured Animal</a>
+      <a href="https://www.google.com/maps/d/edit?mid=1m_fQP6Dv7_E4bNOBvOEBRGb4NVXFsxw&ll=19.868831983084842%2C75.36436669131699&z=14" target="_blank" class="btn track">Track Location</a>
+    </div>
+  </header>
+
+  <!-- 🔽 Scroll Down Text -->
+  <div class="scroll-down-text">↓ Scroll down</div>
+
+  <!-- 🔶 How It Works -->
+  <section class="how-it-works section-box">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>1] 📍 Report</h3>
+        <p>Use our form to report an injured animal's location and condition.</p>
+      </div>
+      <div class="step">
+        <h3>2] 🚑 Rescue</h3>
+        <p>Our trained rescue team is dispatched immediately to provide help.</p>
+      </div>
+      <div class="step">
+        <h3>3] 🏥 Treatment</h3>
+        <p>The animal receives necessary medical care and stabilization.</p>
+      </div>
+      <div class="step">
+        <h3>4] 🐾 Rehabilitate</h3>
+        <p>We relocate the animal to a shelter or help find it a permanent home.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔶 Contact Us -->
+  <section class="contact-section section-box">
+    <h2>Contact Us</h2>
+    <p>If you’d like to support or inquire about our rescue work, feel free to contact us! 
+    </p>
+<p>[📞+91 7410191041/7559403800 , 📧resqtrack@gmail.com]</p>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- 🔶 Scroll reveal animation -->
+  <script>
+    const sections = document.querySelectorAll('.section-box');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
